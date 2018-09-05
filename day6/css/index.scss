@@ -1,0 +1,126 @@
+@charset "UTF-8";
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    box-sizing: border-box;
+    color: #333;
+    font-size: .14rem;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "宋体";
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+html {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    font-size: 625%;
+}
+
+img,
+div,
+body,
+html,
+ul,
+li,
+a {
+    -webkit-touch-callout: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #ccc;
+}
+
+$num:100%;
+%full {
+    width: $num;
+    height: $num;
+}
+
+@mixin nums($w:$num, $h:$num) {
+    width: $w;
+    height: $h;
+}
+
+@mixin flex($s:center) {
+    display: flex;
+    justify-content: $s;
+    align-items: center;
+}
+
+%text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+html,
+body {
+    @extend %full;
+}
+
+header {
+    @include nums(100%, 1.2rem);
+    position: relative;
+    .swiper-container {
+        @include nums(100%, 100%);
+        .swiper-slide {
+            @include nums(100%, 100%);
+            img {
+                @include nums(100%, 100%);
+            }
+        }
+    }
+    p {
+        @include nums(90%, .45rem);
+        background: #fff;
+        position: fixed;
+        top: .2rem;
+        left: 5%;
+        input {
+            @include nums(100%, 100%);
+            display: block;
+            padding-left: .2rem;
+        }
+    }
+}
+
+.con {
+    @include nums(100%, auto);
+    overflow: hidden;
+    ul {
+        @include nums(100%, 1rem);
+        @include flex($s: space-between);
+        li {
+            @include nums(20%, 50%);
+            @include flex();
+            flex-direction: column;
+        }
+    }
+}
+
+footer {
+    @include nums(100%, .5rem);
+    @include flex($s: space-between);
+    background: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    a {
+        @include nums(20%, 100%);
+        @include flex();
+        display: flex;
+        flex-direction: column;
+    }
+}
